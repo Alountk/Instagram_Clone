@@ -1,6 +1,6 @@
 # Instagram_Clone
 
-##MODELS
+## MODELS
 | Users         | Likes         | Posts     | Shares    | Photo  |
 | ------------- |:-------------:| ---------:| ---------:| ------:|
 | id            | id            | id        | id        | postId |
