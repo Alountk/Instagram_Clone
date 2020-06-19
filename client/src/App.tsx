@@ -1,8 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux'
 import './App.css';
-import { Header } from './components/Header';
-import { Intro } from './components/Intro';
+import UseForm from './components/useForm/UseForm';
 
 
 function App() {
@@ -13,11 +12,12 @@ function App() {
     message= null,
     loading= true
   } : any = useSelector((state : any) => state.auth)
+  const handleOnSubmit = (payload:any) => {
+    console.log(payload)
+  }
   return (
     <div className="App">
-      <Header />
-      <Intro />
-      <Intro text='texto para intro2'/>
+      <UseForm onSubmit={handleOnSubmit} />
     </div>
   );
 }
