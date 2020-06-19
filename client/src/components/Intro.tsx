@@ -5,16 +5,19 @@ interface IProps {
   }
   
 interface IIntroState {
-    text: string
-    data: number
+    text?: string
+    data?: number
 }
 
+
 export const Intro: FunctionComponent<IProps> = ({text}) => {
-    const [state, setState] = useState<IIntroState | null>({text:'soy un texto', data:1});
-    const t = text ? text : state?.text;
+    const [objText, setObjText] = useState<IIntroState | null>({text:'soy un texto', data:1});
+    const t = text ? text : objText?.text;
     return (
         <div>
-            <p onClick={setState(text:'me han dado!')} >{t}</p>
+            <p onClick={() => setObjText({text:'me han dado!'})} >
+            <span>{t}</span>    
+            </p>
         </div>
     )
 }
