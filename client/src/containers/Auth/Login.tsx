@@ -11,7 +11,7 @@ import { Center } from "./../../components/center/Center";
 
 export const Login = () => {
   return (
-    <Container>
+    <Container center={true}>
       {/* <UseForm onSubmit={handleOnSubmit} /> */}
       <Card>
         <Title>Inicia sesión</Title>

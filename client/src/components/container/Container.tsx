@@ -1,18 +1,23 @@
-import React from 'react'
+import React, {FC} from 'react'
 
-const style = {
-    alignItems: 'center',
+const style = (center: boolean) => ({
+    alignItems: center ? 'center': undefined,
     backgroundColor: '#eee',
     display: 'flex',
+    flexDirection: 'column',
     height: 'calc(100vh - 20px)',
+    justifyContent: center ? 'center' : undefined,
     padding: '10px 15px',
-    justifyContent: 'center',
     width: 'calc(100vw - 30px)',
-}
+}) as React.CSSProperties;
 
-export const Container = ({children}:any) => {
+interface IContainerProps {
+    center?: boolean
+}
+export const Container:FC<IContainerProps> = (props:any) => {
+    const {children, center= false} = props;
     return (
-        <div style={style}>
+        <div style={style(center)}>
             {children}
         </div>
     )
