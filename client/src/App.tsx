@@ -1,13 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./App.css";
-import UseForm from "./components/useForm/UseForm";
-import { Card } from "./components/card/Card";
-import { Container } from "./components/container/Container";
-import Input from "./components/input/Input";
-import { Button } from "./components/button/Button";
-import { Title } from "./components/title/Title";
-import { Link } from "./components/link/Link";
+import { Route } from "react-router-dom";
+import { Login } from "./containers/Auth/Login";
+import { Register } from "./containers/Auth/Register";
 
 function App() {
   const {
@@ -21,16 +17,10 @@ function App() {
     console.log(payload);
   };
   return (
-    <Container>
-      {/* <UseForm onSubmit={handleOnSubmit} /> */}
-      <Card>
-        <Title>Inicia sesión</Title>
-        <Input placeholder='Correo' label='Dirección del Correo' />
-        <Input placeholder='Contraseña' label='Contraseña' />
-        <Button>Enviar</Button>
-        <Link>Ir al Registro</Link>
-      </Card>
-    </Container>
+    <>
+      <Route exact={true} path="/" component={Login} />
+      <Route exact={true} path="/register" component={Register} />
+    </>
   );
 }
 
