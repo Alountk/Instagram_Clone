@@ -17,10 +17,10 @@ export const Login = () => {
   const handleLogin = (e: any) => {
     e.preventDefault();
     // console.log("LOGIN");
-    dispatch(A.registerRequest({ email: "lolo", password: "llo" }));
+    dispatch(A.loginRequest({ email: "lolo", password: "llo" }));
   };
   const handleOnSubmit = (payload:any) => {
-    console.log(payload)
+    dispatch(A.loginRequest(payload))
   }
   return (
     <Container center={true}>
