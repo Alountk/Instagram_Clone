@@ -1,4 +1,4 @@
-import * as C from './auth.constants'
+import {types as C} from './auth.constants'
 
 export const initialState = {
   logged: false,
@@ -10,27 +10,30 @@ export const initialState = {
 
 export default (state = initialState, {type, payload}) => {
   switch (type) {
-    case C.ME_REQUEST:
+    case C.REGISTER.REQUEST:
+    case C.LOGIN.REQUEST:
       return {
         ...state,
         message: null,
-        loading: true
+        loading: true,
       }
-    case C.ME_SUCCESS:
+    case C.REGISTER.SUCCESS:
+    case C.LOGIN.SUCCESS:
       return {
         ...state,
         logged: true,
-        username: payload.username,
+        email: payload.email,
         message: null,
-        loading: false
+        loading: false,
       }
-    case C.ME_FAILURE:
+    case C.REGISTER.FAILURE:
+    case C.LOGIN.FAILURE:
       return {
         ...state,
-        username: false,
+        email: null,
         logged: false,
-        message: payload, // ¿Seguro que es esto?
-        loading: false
+        message: payload,
+        loading: false,
       }
     default:
       return state

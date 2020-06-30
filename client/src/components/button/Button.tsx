@@ -11,6 +11,7 @@ const style = (block: boolean) =>({
 })
 interface IButton {
     block?: boolean
+    onClick?: any
 }
 
 export const Button:FC<IButton> = (props:any) => {

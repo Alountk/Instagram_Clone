@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import UseForm from "./../../components/useForm/UseForm";
 import { Card } from "./../../components/card/Card";
@@ -9,17 +10,25 @@ import { Button } from "./../../components/button/Button";
 import { Title } from "./../../components/title/Title";
 import { Center } from "./../../components/center/Center";
 
+import * as A from "./../../redux/auth/auth.actions";
+
 export const Login = () => {
+  const dispatch = useDispatch();
+  const handleLogin = (e: any) => {
+    e.preventDefault();
+    // console.log("LOGIN");
+    dispatch(A.registerRequest({ email: "lolo", password: "llo" }));
+  };
+  const handleOnSubmit = (payload:any) => {
+    console.log(payload)
+  }
   return (
     <Container center={true}>
-      {/* <UseForm onSubmit={handleOnSubmit} /> */}
       <Card>
         <Title>Inicia sesión</Title>
-        <Input placeholder="Correo" label="Dirección del Correo" />
-        <Input placeholder="Contraseña" label="Contraseña" />
-        <Button block={true}>Enviar</Button>
+        <UseForm onSubmit={handleOnSubmit} />
         <Center>
-          <Link to='/register'>Ir al Registro</Link>
+          <Link to="/register">Ir al Registro</Link>
         </Center>
       </Card>
     </Container>

@@ -1,3 +1,17 @@
-export const ME_REQUEST = '[AUTH] ME_REQUEST'
-export const ME_SUCCESS = '[AUTH] ME_SUCCESS'
-export const ME_FAILURE = '[AUTH] ME_FAILURE'
+export const types = {
+    LOGIN: {
+      REQUEST: '[AUTH]LOGIN.REQUEST',
+      SUCCESS: '[AUTH]LOGIN.SUCCESS',
+      FAILURE: '[AUTH]LOGIN.FAILURE',
+    },
+    REGISTER: {
+      REQUEST: '[AUTH]REGISTER.REQUEST',
+      SUCCESS: '[AUTH]REGISTER.SUCCESS',
+      FAILURE: '[AUTH]REGISTER.FAILURE',
+    },
+    LOGOUT: {
+      REQUEST: '[AUTH]LOGOUT.REQUEST',
+      SUCCESS: '[AUTH]LOGOUT.SUCCESS',
+      FAILURE: '[AUTH]LOGOUT.FAILURE',
+    },
+  }
