@@ -1,14 +1,15 @@
-import {types as C} from './auth.constants'
+import { types as C } from "./auth.constants";
 
 export const initialState = {
   logged: false,
   username: null,
   email: null,
   message: null,
-  loading: true
-}
+  loading: false,
+  uid: null,
+};
 
-export default (state = initialState, {type, payload}) => {
+export default (state = initialState, { type, payload }) => {
   switch (type) {
     case C.REGISTER.REQUEST:
     case C.LOGIN.REQUEST:
@@ -16,16 +17,18 @@ export default (state = initialState, {type, payload}) => {
         ...state,
         message: null,
         loading: true,
-      }
+      };
     case C.REGISTER.SUCCESS:
     case C.LOGIN.SUCCESS:
+      console.log(payload);
       return {
         ...state,
         logged: true,
-        email: payload.email,
+        email: payload.user.email,
         message: null,
         loading: false,
-      }
+        uid: payload.user.uid,
+      };
     case C.REGISTER.FAILURE:
     case C.LOGIN.FAILURE:
       return {
@@ -34,8 +37,8 @@ export default (state = initialState, {type, payload}) => {
         logged: false,
         message: payload,
         loading: false,
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};

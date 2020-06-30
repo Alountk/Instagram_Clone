@@ -34,7 +34,7 @@ const Input: FC<IInputProps> = ({
   return (
     <div>
       {label && <span style={spanStyle}>{label}</span>}
-      <input {...input} {...props} style={style} />
+      <input {...input} {...props} type={type} style={style} />
       {meta.submitFailed && meta.error && <span>{meta.error}</span>}
     </div>
   );

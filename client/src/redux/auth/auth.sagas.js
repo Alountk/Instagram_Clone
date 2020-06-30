@@ -24,7 +24,6 @@ function* loginSaga(data) {
     const {email,password} = data.payload;
     const login = yield call(rsf.auth.signInWithEmailAndPassword, email, password);
     yield put(A.loginSuccess(login));
-    console.log(login)
   }
   catch(error) {
     yield put(A.loginFailure(error));
